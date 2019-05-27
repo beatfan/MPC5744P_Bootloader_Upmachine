@@ -1,0 +1,7 @@
+本文件夹为控件风格样式设定，需在App.xaml中添加资源引用
+
+Convert为值转换器
+FontIcons为自定义图标字体导入方法
+ForButtons为按钮风格
+ForTabControls为TabControl的风格，暂未使用
+ForWindows为窗体风格，本项目实现扁平化窗体，去除原本的边框

@@ -1,0 +1,8 @@
+本文件为Config文件夹内文件的说明
+
+
+详细说明：
+ClassSystem为读写配置文件底层接口，供ClassUser调用
+ClassUser为用户可直接调用的配置文件读写函数，封装为具体配置项读写
+
+配置项的全局变量存于Datas->CommonData中

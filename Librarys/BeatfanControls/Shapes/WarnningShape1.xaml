@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="BeatfanControls.Shapes.WarnningShape1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100">
+    <Viewbox>
+        <Grid>
+            
+            <Path Height="100" Width="100" Name="DangerIco" 
+              HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+              Stroke="Black" StrokeThickness="8" Fill="Yellow">
+                <Path.Data>
+                    <GeometryGroup>
+                        <PathGeometry Figures="M45,10 L5,90 A3,3 0 1 0 10,95 L90,95 A3,3 0 1 0 95,90 L55,10 A3,3 0 1 0 45,10 z" />
+                    </GeometryGroup>
+                </Path.Data>
+                <!--<Path.Fill>
+                <LinearGradientBrush EndPoint="0,0.5" StartPoint="1.3,0.5">
+                    <GradientStop Color="#FF6E7F9A" Offset="0.5"/>
+                    <GradientStop Color="#FF0A38C7" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Path.Fill>-->
+            </Path>
+
+            <Path Height="100" Width="100" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+              Stroke="Black" StrokeThickness="1" Fill="Black">
+                <Path.Data>
+                    <GeometryGroup>
+                        <PathGeometry Figures="M45,30 L47,70 A3,3 0 1 0 53,70 L55,30 A5,5 0 1 0 45,30 M56,80 A6,6 0 1 0 56,81 z" />
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
+        </Grid>
+    </Viewbox>
+</UserControl>

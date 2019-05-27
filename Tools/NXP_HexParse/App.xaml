@@ -1,0 +1,25 @@
+﻿<Application x:Class="NXP_HexParse.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             >
+
+    <!--主界面-->
+    <Application.StartupUri>
+        MainWindow.xaml
+    </Application.StartupUri>
+
+    <!--<Application.StartupUri>
+        Controls/Windows/CanDataUserDefineWindow1.xaml
+    </Application.StartupUri>-->
+    
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/ForWindows/MetroWindowStyle.xaml" />
+
+                <ResourceDictionary Source="Styles/Converter/StringConverter.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

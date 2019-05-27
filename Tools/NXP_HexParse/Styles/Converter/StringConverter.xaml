@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:strConverter="clr-namespace:NXP_HexParse.Styles.Converter"
+                    xmlns:strBytes="clr-namespace:NXP_HexParse.Styles.Converter.StringBytes"
+                    
+                    >
+    <strConverter:StringUintConverter x:Key="StrUintConverter" />
+    <strConverter:StringIntConverter x:Key="StrIntConverter" />
+    <strConverter:EnableConverter x:Key="EnableConverter" />
+    <strBytes:StringByte0 x:Key="StrByte0" />
+    <strBytes:StringByte1 x:Key="StrByte1" />
+    <strBytes:StringByte2 x:Key="StrByte2" />
+    <strBytes:StringByte3 x:Key="StrByte3" />
+    <strBytes:StringByte4 x:Key="StrByte4" />
+    
+</ResourceDictionary>

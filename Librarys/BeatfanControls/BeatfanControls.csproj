@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C046218-A008-41FF-AB09-E5D567AB3290}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BeatfanControls</RootNamespace>
+    <AssemblyName>BeatfanControls</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicDataDisplay">
+      <HintPath>DLL\DynamicDataDisplay.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animations\WaittingAnimation1.xaml.cs">
+      <DependentUpon>WaittingAnimation1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Buttons\FlatButton1.xaml.cs">
+      <DependentUpon>FlatButton1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Buttons\SwitchButton.xaml.cs">
+      <DependentUpon>SwitchButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BytesBitsShow\BytesBitsShow1.xaml.cs">
+      <DependentUpon>BytesBitsShow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Charts\LineChart1.xaml.cs">
+      <DependentUpon>LineChart1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicDataDisplay\DynamicDataDisplay1.xaml.cs">
+      <DependentUpon>DynamicDataDisplay1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Indicators\StateIndicator1.xaml.cs">
+      <DependentUpon>StateIndicator1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Indicators\StateIndicatorProcessBar.xaml.cs">
+      <DependentUpon>StateIndicatorProcessBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Labels\BoolLabel.cs" />
+    <Compile Include="Labels\NumbericLabel_Int - 复制.cs" />
+    <Compile Include="Labels\EditLabel.cs" />
+    <Compile Include="ProcessBars\CycleProcessBar1.xaml.cs">
+      <DependentUpon>CycleProcessBar1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessBars\CycleProcessBar2.xaml.cs">
+      <DependentUpon>CycleProcessBar2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shapes\WarnningShape1.xaml.cs">
+      <DependentUpon>WarnningShape1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextBoxes\NumbericTextbox_HexUInt.cs" />
+    <Compile Include="TextBoxes\NumbericTextbox_HexBytes.cs" />
+    <Compile Include="TextBoxes\Textbox_Hint.cs" />
+    <Compile Include="TextBoxes\NumbericTextbox_Int.cs" />
+    <Compile Include="TextBoxes\NumbericTextbox_Double.cs" />
+    <Compile Include="Thermometers\Thermometer1.xaml.cs">
+      <DependentUpon>Thermometer1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViews\TreeView1.xaml.cs">
+      <DependentUpon>TreeView1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MyUserControlModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Animations\WaittingAnimation1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Buttons\FlatButton1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Buttons\SwitchButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BytesBitsShow\BytesBitsShow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Charts\LineChart1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicDataDisplay\DynamicDataDisplay1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Indicators\StateIndicator1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Indicators\StateIndicatorProcessBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProcessBars\CycleProcessBar1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProcessBars\CycleProcessBar2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shapes\WarnningShape1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Thermometers\Thermometer1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TreeViews\TreeView1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\logo-48x48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\打开按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\关闭按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\凯博LOGO%28黑K%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

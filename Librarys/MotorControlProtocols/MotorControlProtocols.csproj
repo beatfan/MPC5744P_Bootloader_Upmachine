@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{68A9638D-89E1-472F-B3F9-DC88139B4FA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MotorControlProtocols</RootNamespace>
+    <AssemblyName>MotorControlProtocols</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractMotorControl.cs" />
+    <Compile Include="DualSource\DualSourceTM1.cs" />
+    <Compile Include="EKOilPump\EkOilPumpMotorControl2-RegDebug.cs" />
+    <Compile Include="EKOilPump\EkOilPumpMotorControl1.cs" />
+    <Compile Include="Hybrid\HybridIsg1.cs" />
+    <Compile Include="Hybrid\HybridTM1.cs" />
+    <Compile Include="Hybrid\HybridTM2.cs" />
+    <Compile Include="CommonInterface.cs" />
+    <Compile Include="OthersOwn\MotorThOwn1.cs" />
+    <Compile Include="OilPump\OilPumpMotorControl1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PureElectric\PureElectricTM1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DualSource\双源CAN通讯协议20171106.docx" />
+    <None Include="Hybrid\混动CAN通讯协议-电控（内CAN）1.15.pdf" />
+    <None Include="Hybrid\电机控制器故障代码表V1.1.xlsx" />
+    <None Include="OilPump\EK-2AT_电子油泵CAN通讯协议_V1.1_20180302.docx" />
+    <None Include="OthersOwn\凯博易控-牟特科技253Nm电机通讯协议.doc" />
+    <None Include="PureElectric\福田欧辉纯电动客车电机控制器通讯协议.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpectialFunctons\SpecialFunctons.csproj">
+      <Project>{b74590ce-f119-4ef9-89a6-2060ff1ba20c}</Project>
+      <Name>SpecialFunctons</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DLL\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

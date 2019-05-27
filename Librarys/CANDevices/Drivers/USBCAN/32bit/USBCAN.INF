@@ -1,0 +1,66 @@
+[Version]
+Signature="$CHICAGO$"
+Class=USB
+provider=%PHILIPS%
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+DriverVer=05/04/2012,1.90.0000
+
+[Manufacturer]
+%MfgName%=ZLGMCU
+
+[ZLGMCU]
+%USB\VID_0471&PID_1200.DeviceDesc%=ZLGCAN.Dev, USB\VID_0471&PID_1200
+
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+usbcan.sys  = 1,,
+
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[DestinationDirs]
+ZLGCAN.Files.Ext = 10,System32\Drivers
+
+[ZLGCAN.Dev]
+CopyFiles=ZLGCAN.Files.Ext
+AddReg=ZLGCAN.AddReg
+
+[ZLGCAN.Dev.NT]
+CopyFiles=ZLGCAN.Files.Ext
+AddReg=ZLGCAN.AddReg
+
+[ZLGCAN.Dev.NT.Services]
+Addservice = ZLGCAN, 0x00000002, ZLGCAN.AddService
+
+[ZLGCAN.AddService]
+DisplayName    = %ZLGCAN.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 2                  ; SERVICE_AUTO_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\usbcan.sys
+LoadOrderGroup = Base
+
+[ZLGCAN.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbcan.sys
+HKR,"System\Currentcontrolset\Services\ZLGCAN\Parameters","MaximumTransferSize",0x10001,65536
+HKR,"System\Currentcontrolset\Services\ZLGCAN\Parameters","DebugLevel",0x10001,2
+
+
+[ZLGCAN.Files.Ext]
+usbcan.sys
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+ZLGMCU="Guang Zhou ZLG_MCU Development Co. LTD."
+MfgName="ZLGMCU"
+USB\VID_0471&PID_1200.DeviceDesc="ZLG USBCAN"
+ZLGCAN.SvcDesc="usbcan.sys ZLGMCU USBCAN"
+PHILIPS = "ZLG Mcu Development Co,LTD"
+DiskId1 = "USBCAN Driver Disc"

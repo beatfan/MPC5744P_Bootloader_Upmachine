@@ -1,0 +1,170 @@
+;/*++
+;
+;Copyright (c) ZhiYuan Electronic Co.Ltd.  All rights reserved.
+;
+;
+;Module Name:
+;
+;    USBCAN_E.INF
+;
+;Abstract:
+;    Installation inf for the USBCAN-E Board
+;
+;--*/
+
+[Version]
+Signature = "$WINDOWS NT$"
+Class = %DeviceClassName%
+ClassGUID = {0BD2B8A1-FFB7-413d-BEDF-47FBDDAEACB1}
+Provider = %Provider%
+DriverVer=04/10/2013,2.0.0.5
+CatalogFile=usbcan_e_u.cat
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=USBCAN_E_ClassReg     
+
+[USBCAN_E_ClassReg]
+HKR,,,0,%DeviceClassName%
+HKR,,Icon,,-5
+
+; ================= Device section =====================
+
+[Manufacturer]
+%MfgName%=USBCAN_E_Mfg,NTx86,NTAMD64
+
+; For Win2K
+[USBCAN_E_Mfg]
+%DeviceDesc%=USBCAN_E_Inst.NT, %DEVICE_ID% 
+%DeviceDesc_2E%=USBCAN_E_Inst.NT, %DEVICE_ID_2E%
+
+; For XP and later
+[USBCAN_E_Mfg.NTx86]
+%DeviceDesc%=USBCAN_E_Inst.NT, %DEVICE_ID% 
+%DeviceDesc_2E%=USBCAN_E_Inst.NT, %DEVICE_ID_2E%
+
+; For AMD64
+[USBCAN_E_Mfg.NTAMD64]
+%DeviceDesc%=USBCAN_E_Inst.NTAMD64, %DEVICE_ID% 
+%DeviceDesc_2E%=USBCAN_E_Inst.NTAMD64, %DEVICE_ID_2E%
+
+[USBCAN_E_Inst.NT]
+CopyFiles=USBCAN_E_Drv
+CopyFiles=USBCAN_E_Dll
+
+[USBCAN_E_Inst.NTAMD64]
+CopyFiles=USBCAN_E_Drv
+CopyFiles=USBCAN_E_Dll32
+CopyFiles=USBCAN_E_Dll64
+
+
+[USBCAN_E_Drv]
+%DEVICE_DRIVER%,,,2
+
+[USBCAN_E_Dll]
+%DEVICE_LIBRARY%,,,2
+%KERNELDLL_LIBRARY%,,,2
+
+[USBCAN_E_Dll32]
+%DEVICE_LIBRARY%,,,2
+%KERNELDLL_LIBRARY%,,,2
+%DEVICE_LIBRARY64%,,,2
+%KERNELDLL_LIBRARY64%,,,2
+
+[USBCAN_E_Dll64]
+%DEVICE_LIBRARY%,,,2
+%KERNELDLL_LIBRARY%,,,2
+%DEVICE_LIBRARY64%,,,2
+%KERNELDLL_LIBRARY64%,,,2
+
+
+;============ Source & Destination ==========
+
+[SourceDisksNames]
+1=%Disk_Description%,,,
+
+[SourceDisksFiles]
+%DEVICE_DRIVER%  = 1,,
+%DEVICE_LIBRARY% = 1,,
+%KERNELDLL_LIBRARY% = 1,,
+%DEVICE_LIBRARY64% = 1,,
+%KERNELDLL_LIBRARY64% = 1,,
+
+[DestinationDirs]
+USBCAN_E_Drv  = 12 
+USBCAN_E_Dll= 11 
+USBCAN_E_Dll32= 10,system32
+USBCAN_E_Dll64= 10,syswow64
+
+
+
+;=============== Service ==================
+[USBCAN_E_Inst.NT.Services]
+Addservice = USBCAN_E, 0x00000002, USBCAN_E_Svc
+
+[USBCAN_E_Inst.NTAMD64.Services]
+Addservice = USBCAN_E, 0x00000002, USBCAN_E_Svc
+
+[USBCAN_E_Svc]
+DisplayName    = %SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\%DEVICE_DRIVER%
+LoadOrderGroup = Base
+
+
+
+
+
+;-------------- WDF Coinstaller installation
+[DestinationDirs]
+CoInstaller_CopyFiles = 11
+
+[SourceDisksFiles]
+WdfCoInstaller01009.dll=1 ; make sure the number matches with SourceDisksNames
+
+[USBCAN_E_Inst.NT.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[USBCAN_E_Inst.NTAMD64.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+wdfcoinstaller01009.dll
+
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "wdfcoinstaller01009.dll,WdfCoInstaller"
+
+[USBCAN_E_Inst.NT.Wdf]
+KmdfService = USBCAN_E, USBCAN_E_wdfsect
+
+[USBCAN_E_Inst.NTAMD64.Wdf]
+KmdfService = USBCAN_E, USBCAN_E_wdfsect
+
+[USBCAN_E_wdfsect]
+KmdfLibraryVersion = 1.9
+
+;---------------------- Strings -----------------------------;
+
+[Strings]
+DeviceClassName = "ZlGCAN"
+Provider		= "ZLGMCU DEVELOPMENT Co,LTD"
+MfgName			= "GUANGZHOU ZHIYUAN ELECTRONICS Co.Ltd"
+Disk_Description= "USBCAN_E Installation Disk"
+SvcDesc			= "USBCAN_E.ServiceDesc"
+DEVICE_ID       = "USB\VID_0471&PID_1260"
+DEVICE_ID_2E       = "USB\VID_0471&PID_1261"
+DeviceDesc		= "USBCAN_E_U"
+DeviceDesc_2E		= "USBCAN_2E_U"
+;DEVICE_TYPE         = 600
+;DEVICE_NAME         = "USBCAN_E" 
+DEVICE_DRIVER       = "USBCAN_E_U.sys"
+DEVICE_LIBRARY      = "USBCAN_E_U.DLL"
+KERNELDLL_LIBRARY   = "USBCAN_E.DLL"
+DEVICE_LIBRARY64      = "USBCAN_E_U_64.DLL"
+KERNELDLL_LIBRARY64   = "USBCAN_E_64.DLL"

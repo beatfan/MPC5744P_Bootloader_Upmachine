@@ -1,0 +1,1 @@
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Tools\HexParse\bin\Debug\HexParse.exe.config

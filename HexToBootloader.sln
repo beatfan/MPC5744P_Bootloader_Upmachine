@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librarys", "Librarys", "{D80FE7AE-76E9-4D9B-A9A9-37FF1352488A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{E36E8E2E-0327-40CA-BC49-9AAE1A1D74FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecialFunctons", "Librarys\SpectialFunctons\SpecialFunctons.csproj", "{B74590CE-F119-4EF9-89A6-2060FF1BA20C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeatfanControls", "Librarys\BeatfanControls\BeatfanControls.csproj", "{4C046218-A008-41FF-AB09-E5D567AB3290}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CANDevices", "Librarys\CANDevices\CANDevices.csproj", "{F0185275-993A-4730-A130-B63A78100A4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NXP_HexParse", "Tools\NXP_HexParse\NXP_HexParse.csproj", "{EC974F9C-6001-41FC-9967-39C9AF5047A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B74590CE-F119-4EF9-89A6-2060FF1BA20C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74590CE-F119-4EF9-89A6-2060FF1BA20C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74590CE-F119-4EF9-89A6-2060FF1BA20C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B74590CE-F119-4EF9-89A6-2060FF1BA20C}.Debug|x86.Build.0 = Debug|Any CPU
+		{B74590CE-F119-4EF9-89A6-2060FF1BA20C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74590CE-F119-4EF9-89A6-2060FF1BA20C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74590CE-F119-4EF9-89A6-2060FF1BA20C}.Release|x86.ActiveCfg = Release|Any CPU
+		{B74590CE-F119-4EF9-89A6-2060FF1BA20C}.Release|x86.Build.0 = Release|Any CPU
+		{4C046218-A008-41FF-AB09-E5D567AB3290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C046218-A008-41FF-AB09-E5D567AB3290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C046218-A008-41FF-AB09-E5D567AB3290}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4C046218-A008-41FF-AB09-E5D567AB3290}.Debug|x86.Build.0 = Debug|Any CPU
+		{4C046218-A008-41FF-AB09-E5D567AB3290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C046218-A008-41FF-AB09-E5D567AB3290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C046218-A008-41FF-AB09-E5D567AB3290}.Release|x86.ActiveCfg = Release|Any CPU
+		{4C046218-A008-41FF-AB09-E5D567AB3290}.Release|x86.Build.0 = Release|Any CPU
+		{F0185275-993A-4730-A130-B63A78100A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0185275-993A-4730-A130-B63A78100A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0185275-993A-4730-A130-B63A78100A4F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F0185275-993A-4730-A130-B63A78100A4F}.Debug|x86.Build.0 = Debug|Any CPU
+		{F0185275-993A-4730-A130-B63A78100A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0185275-993A-4730-A130-B63A78100A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0185275-993A-4730-A130-B63A78100A4F}.Release|x86.ActiveCfg = Release|Any CPU
+		{F0185275-993A-4730-A130-B63A78100A4F}.Release|x86.Build.0 = Release|Any CPU
+		{EC974F9C-6001-41FC-9967-39C9AF5047A7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{EC974F9C-6001-41FC-9967-39C9AF5047A7}.Debug|x86.ActiveCfg = Debug|x86
+		{EC974F9C-6001-41FC-9967-39C9AF5047A7}.Debug|x86.Build.0 = Debug|x86
+		{EC974F9C-6001-41FC-9967-39C9AF5047A7}.Release|Any CPU.ActiveCfg = Release|x86
+		{EC974F9C-6001-41FC-9967-39C9AF5047A7}.Release|x86.ActiveCfg = Release|x86
+		{EC974F9C-6001-41FC-9967-39C9AF5047A7}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B74590CE-F119-4EF9-89A6-2060FF1BA20C} = {D80FE7AE-76E9-4D9B-A9A9-37FF1352488A}
+		{4C046218-A008-41FF-AB09-E5D567AB3290} = {D80FE7AE-76E9-4D9B-A9A9-37FF1352488A}
+		{F0185275-993A-4730-A130-B63A78100A4F} = {D80FE7AE-76E9-4D9B-A9A9-37FF1352488A}
+		{EC974F9C-6001-41FC-9967-39C9AF5047A7} = {E36E8E2E-0327-40CA-BC49-9AAE1A1D74FF}
+	EndGlobalSection
+EndGlobal

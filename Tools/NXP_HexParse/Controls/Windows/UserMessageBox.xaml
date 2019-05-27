@@ -1,0 +1,28 @@
+﻿<Window x:Class="NXP_HexParse.Controls.Windows.UserMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        Style="{StaticResource MetroWindowStyle1}"
+        Title="警告" Height="150" Width="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="25*" />
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0">
+
+            <Label Name="lbMessage" Content="是否关闭本程序?" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*" />
+                <ColumnDefinition Width="80*" />
+            </Grid.ColumnDefinitions>
+            <Button Name="btnConfirm" Content="确定" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="25" MinWidth="50" IsDefault="True"  Click="btnConfirm_Click"></Button>
+            <Button Name="btnCancel" Content="取消" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="25" MinWidth="50" IsCancel="True" Click="btnCancel_Click"></Button>
+        </Grid>
+    </Grid>
+</Window>

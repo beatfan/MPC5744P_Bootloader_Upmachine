@@ -1,0 +1,10 @@
+本文件为Controls文件夹内文件的说明
+
+
+详细说明：
+Buttons为自定义按钮的集合，包括主页界面的开始按钮
+DashBoards为自定义的仪表盘控件
+Indicators为显示器控件，包含状态显示控件
+PageControls为页面控件，主页和开发者页面都是整合为一个控件嵌入到窗体中
+Thermometers为温度计控件
+Windows为窗体控件，暂时只作为UI测试验证，未正式使用

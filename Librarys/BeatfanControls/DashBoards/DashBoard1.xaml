@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="BeatfanControls.DashBoards.DashBoard1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="234" d:DesignWidth="208" x:Name="userDashBoard"  
+             xmlns:my="clr-namespace:CircularGauge;assembly=CircularGauge">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"></RowDefinition>                
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Image 仪表上部背景图片 -->
+        <!-- RangeIndicatorRadius 仪表三段弧形色块半径 -->
+        <!-- Major 主刻度 -->
+        <!-- Minor 小刻度 -->
+        <!-- MaxValue MinValue 最大最小值 -->
+        <!-- OptimalRange 中间弧形 -->
+        <!-- ScaleLabel 刻度标签 -->
+        <!-- Radius 半径 -->
+        <!-- Pointer 指针 -->
+        <my:CircularGaugeControl Grid.Row="0" CurrentValue="{Binding Score}" Name="myDashBoard1" GaugeBackgroundColor="Black" 
+                                 
+                                 ImageOffset="-50" ImageSize="40,50" 
+                                 
+                                 RangeIndicatorRadius="75" RangeIndicatorThickness="4"
+            
+                                 MajorDivisionsCount="10" MajorTickColor="LightGray" MajorTickSize="10,3" 
+                                 MinorDivisionsCount="4" MinorTickColor="LightGray" MinorTickSize="2,1" 
+                                 MaxValue="1000" MinValue="0"
+                                 OptimalRangeEndValue="700" OptimalRangeStartValue="300" 
+                                 
+                                 ScaleRadius="70" ScaleStartAngle="120" ScaleSweepAngle="300"
+                                 
+                                 ScaleLabelForeground="LightGray" ScaleLabelSize="25,15" ScaleLabelFontSize="8" 
+                                 ScaleLabelRadius="53"  
+                                 
+                                 Radius="100" 
+                                 
+                                 PointerCapRadius="26" 
+                                  
+                                 PointerLength="55" PointerThickness="16" 
+                                 
+                                 DialText="NM" DialTextFontSize="8" DialTextColor="Blue" DialTextOffset="40" 
+                                 
+                                 RangeIndicatorLightOffset="60" RangeIndicatorLightRadius="6" OptimalRangeColor="Yellow" BelowOptimalRangeColor="Green">
+                                
+
+        </my:CircularGaugeControl>
+        <Label FontSize="20" Grid.Row="1" Name="valueStr" Content="{Binding ElementName=myDashBoard1,Path=CurrentValue}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    </Grid>
+</UserControl>

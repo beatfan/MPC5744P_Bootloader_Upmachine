@@ -1,0 +1,9 @@
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Librarys\CANDevices\bin\Debug\CANDevices.dll
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Librarys\CANDevices\bin\Debug\CANDevices.pdb
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Librarys\CANDevices\obj\Debug\CANDevices.dll
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Librarys\CANDevices\obj\Debug\CANDevices.pdb
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\CANDevices\bin\Debug\CANDevices.dll
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\CANDevices\bin\Debug\CANDevices.pdb
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\CANDevices\obj\Debug\CANDevices.csprojResolveAssemblyReference.cache
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\CANDevices\obj\Debug\CANDevices.dll
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\CANDevices\obj\Debug\CANDevices.pdb

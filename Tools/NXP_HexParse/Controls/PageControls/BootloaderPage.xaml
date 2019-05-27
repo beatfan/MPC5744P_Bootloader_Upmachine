@@ -1,0 +1,164 @@
+﻿<root:MyUserControlModel x:Class="NXP_HexParse.Controls.PageControls.BootloaderPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:root="clr-namespace:BeatfanControls.UserControls;assembly=BeatfanControls"
+             xmlns:myTextBoxes="clr-namespace:BeatfanControls.TextBoxes;assembly=BeatfanControls"
+             xmlns:myLabels="clr-namespace:BeatfanControls.Labels;assembly=BeatfanControls"
+             xmlns:myIndicator="clr-namespace:BeatfanControls.Indicators;assembly=BeatfanControls"
+             mc:Ignorable="d" 
+                         
+             >
+    <Viewbox Name="vbNormalPage">
+        <Grid Name="gdNormalPage" Width="650" Height="450" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150*" />
+                <RowDefinition Height="200*" />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*" />
+                    <ColumnDefinition Width="50*" />
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100*" />
+                        <RowDefinition Height="20*" />
+                    </Grid.RowDefinitions>
+                    <!--串口信息-->
+                <GroupBox Grid.Row="0" BorderThickness="2" BorderBrush="#FF3703A8" Header="串口设置">
+
+                    <Grid  Name="gdUartInfo">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*" />
+                            <RowDefinition Height="20*" />
+                            <RowDefinition Height="20*" />
+                            <RowDefinition Height="20*" />
+                        </Grid.RowDefinitions>
+
+ 
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="30*" />
+                            </Grid.ColumnDefinitions>
+                                <Label Grid.Row="1" Grid.Column="0" Content="CAN类型" HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="45"/>
+                                <ComboBox Name="cbCanType" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="55"/>
+                            </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="30*" />
+                            </Grid.ColumnDefinitions>
+                                <Label Grid.Row="2" Grid.Column="0" Content="设备索引" HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="45"/>
+                                <ComboBox Name="cbDeviceIndex" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="35"/>
+                            </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="30*" />
+                            </Grid.ColumnDefinitions>
+                                <Label Grid.Row="3" Grid.Column="0" Content="CAN索引" HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="45"/>
+                                <ComboBox Name="cbCanIndex" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="35" SelectionChanged="ComboBox_SelectionChanged" />
+                            </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="30*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="4" Grid.Column="0" Content="波特率" HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="45"/>
+                            <ComboBox Name="cbCanBaudrate" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="45" SelectionChanged="ComboBox_SelectionChanged" />
+                            
+                        </Grid>
+
+                        
+                    </Grid>
+
+                </GroupBox>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*" />
+                    </Grid.RowDefinitions>
+                    <Button Name="btnCanConnect" Grid.Row="1" Content="Connect" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="55"  Click="btnConnectCan_Click"  />
+                </Grid>
+                </Grid>
+
+                <!--第二行，选择文件-->
+                <GroupBox Header="烧录设置" Grid.Column="1" BorderBrush="#FF078B85" BorderThickness="2">
+                    <Grid Name="gdBody">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60*" />
+                            <RowDefinition Height="60*" />
+                            <RowDefinition Height="60*" />
+                            <RowDefinition Height="60*" />
+                            <RowDefinition Height="60*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="60*" />
+                            </Grid.ColumnDefinitions>
+                            <myIndicator:StateIndicator1 x:Name="sIDstatusOfMcuReset" LabelContent="" />
+                            <Button Name="btnResetMcu" Content="进入用户App"  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnResetMcu_Click"/>
+                            <myIndicator:StateIndicator1 x:Name="sIDstatusOfBootloader" LabelContent="" Grid.Column="3" />
+                            <Button Name="btnEnterBootloader" Content="进入BootLoader" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnEnterBootloader_Click"/>
+                        </Grid>
+                        <Grid Grid.Row="2" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10*" />
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="10*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Hex文件:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            <TextBox Name="tbSelectedHexFilePath"  AllowDrop="True" PreviewDrop="TextBox_Drop" PreviewDragOver="TextBox_DragOver" Grid.Column="1" VerticalAlignment="Center"/>
+                            <Button Name="btnSelectHexFile" Content="选择Hex文件" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnSelectHexFile_Click"/>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10*" />
+                                <ColumnDefinition Width="40*" />
+                                <ColumnDefinition Width="10*" />
+                                <ColumnDefinition Width="10*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="烧录进度:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            <ProgressBar Name="psbProgress" Orientation="Horizontal" Value="0" Minimum="0" Maximum="100" Grid.Column="1" Height="20"/>
+                            <Label Content="{Binding ElementName=psbProgress,Path=Value}" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            <Button Name="btnStartBurn" Content="开始烧录" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnStartBurn_Click"/>
+                        </Grid>
+
+                    </Grid>
+                </GroupBox>
+            </Grid>
+
+            <!--第2行，显示信息-->
+            <Grid Name="gdMsg" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="60*" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="10*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="信息显示:" VerticalAlignment="Center" />
+                    <Button Name="btnClearMsg" Content="清除" Grid.Column="1" Click="btnClearMsg_Click" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button Name="btnShowMsg" Content="显示数据" Visibility="Collapsed" Grid.Column="2" Click="btnShowMsg_Click" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+                <RichTextBox Name="rtbMsg" Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="White" IsReadOnly="True" >
+                    <FlowDocument>
+                        <Paragraph Name="paraMsg" FontSize="10" >
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </Grid>
+        </Grid>
+
+    </Viewbox>
+</root:MyUserControlModel>

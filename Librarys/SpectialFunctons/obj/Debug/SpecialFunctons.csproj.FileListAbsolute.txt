@@ -1,0 +1,11 @@
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Librarys\SpectialFunctons\bin\Debug\SpecialFunctions.dll
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Librarys\SpectialFunctons\bin\Debug\SpecialFunctions.pdb
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Librarys\SpectialFunctons\bin\Debug\NPOI.dll
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Librarys\SpectialFunctons\obj\Debug\SpecialFunctions.dll
+D:\Work\Projects\Windows\WPF\Hex文件解析传送到Bootloader\Librarys\SpectialFunctons\obj\Debug\SpecialFunctions.pdb
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\SpectialFunctons\bin\Debug\SpecialFunctions.dll
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\SpectialFunctons\bin\Debug\SpecialFunctions.pdb
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\SpectialFunctons\bin\Debug\NPOI.dll
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\SpectialFunctons\obj\Debug\SpecialFunctons.csprojResolveAssemblyReference.cache
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\SpectialFunctons\obj\Debug\SpecialFunctions.dll
+C:\Users\SB\Desktop\MPC5744P_Bootloader上位机\Librarys\SpectialFunctons\obj\Debug\SpecialFunctions.pdb

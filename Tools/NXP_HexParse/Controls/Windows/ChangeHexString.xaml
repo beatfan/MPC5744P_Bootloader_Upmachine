@@ -1,0 +1,143 @@
+﻿<Window x:Class="NXP_HexParse.Controls.Windows.ChangeHexString"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:myTextBoxes="clr-namespace:BeatfanControls.TextBoxes;assembly=BeatfanControls"
+        Style="{StaticResource MetroWindowStyle1}"
+        Title="插入行" Height="350" Width="500" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="80*" />
+            <RowDefinition Height="25*" />
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="修改行(No):" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <myTextBoxes:NumbericTextbox_Int Name="tbChangeRow" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="80" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="70*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="数据长度:" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <ComboBox Name="cbDataLength" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="80" />
+            <Label Name="lbDataLengthMsg" Grid.Column="2" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="20*" />
+                <ColumnDefinition Width="20*" />
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="40*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="偏移地址(16进制xxxx):" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <myTextBoxes:NumbericTextbox_HexUInt Name="tbLinerOffset" Grid.Column="1"  HorizontalContentAlignment="Right" VerticalAlignment="Center"  ValueChange="TextBoxHex_TextChanged"/>
+            <myTextBoxes:NumbericTextbox_HexUInt Name="tbOffset" Grid.Column="2"  VerticalAlignment="Center" ValueChange="TextBoxHex_TextChanged"/>
+            <myTextBoxes:NumbericTextbox_HexUInt Name="tbReadAddr" IsEnabled="False" Grid.Column="3"  VerticalAlignment="Center" />
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="数据类型:" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <ComboBox Name="cbDataType" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="80"/>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="数据(16进制xx…xx):" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <myTextBoxes:NumbericTextbox_HexBytes Name="tbData" Grid.Column="1"  VerticalAlignment="Center" ValueChange="TextBoxHex_TextChanged"/>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="数据:" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <TextBox Name="tbShowLineData"  Grid.Column="1"  VerticalAlignment="Center" />
+        </Grid>
+        
+        <Grid Grid.Row="6">
+            <DataGrid Name="dgMsg1" AllowDrop="True" Grid.Column="0" AutoGenerateColumns="False" VerticalScrollBarVisibility="Auto">
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="HorizontalContentAlignment" Value="Center">
+                        </Setter>
+                        <Setter Property="Background" Value="#FFB3CFFF"></Setter>
+                        <Setter Property="Foreground" Value="#FF075A5B"></Setter>
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="BorderBrush" Value="#17acae" />
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="序号" Width="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding No, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,Converter={StaticResource ResourceKey=StrIntConverter}}" 
+                                                Background="{Binding WarnningColor}"
+                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="地址" Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding RealAddr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,Converter={StaticResource ResourceKey=StrUintConverter}}" 
+                                                Background="{Binding WarnningColor}"
+                                                HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="值" Width="100" >
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate >
+                                <TextBlock  Text="{Binding Data, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,Converter={StaticResource ResourceKey=StrUintConverter}}"
+                                                Background="{Binding WarnningColor}"
+                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="备注" Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding Remark}"
+                                                Background="{Binding WarnningColor}"
+                                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Button Name="btnConfirm" Content="确定" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="25" MinWidth="80" IsDefault="True"  Click="btnConfirm_Click"></Button>
+            <Button Name="btnCancel" Content="取消" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="25" MinWidth="80" IsCancel="True" Click="btnCancel_Click"></Button>
+        </Grid>
+    </Grid>
+</Window>

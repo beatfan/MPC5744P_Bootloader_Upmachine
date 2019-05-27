@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="BeatfanControls.Indicators.StateIndicatorProcessBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:myCycleProcessbar="clr-namespace:BeatfanControls.ProcessBars"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="72" d:DesignWidth="212">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120*" />
+            <ColumnDefinition Width="36*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Name="lbIndicator" Content="名称" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
+        <myCycleProcessbar:CycleProcessBar2 Grid.Column="1" x:Name="testRunProcess" CurrentValue="0.5" Width="36" Height="36"/>
+    </Grid>
+</UserControl>

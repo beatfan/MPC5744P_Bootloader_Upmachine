@@ -1,0 +1,85 @@
+﻿<Window x:Class="NXP_HexParse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:UserPages="clr-namespace:NXP_HexParse.Controls.PageControls" 
+        Tag="有关闭提醒"
+        ResizeMode="CanResizeWithGrip"
+        Title="NXP Hex文件解析烧录 V1.0"
+        Style="{StaticResource MetroWindowStyle1}"
+        >
+
+
+    <Grid Name="gdMain"  Background="#FFE1EBF1">
+
+        <!--下方控件-->
+        <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="300*" />
+            </Grid.RowDefinitions>
+            <!--第一行为菜单和图标-->
+            <Grid>
+                <!--菜单-->
+                <Image x:Name="eKLogo" Source="/HexParse;component/Pictures/凯博LOGO%28黑K%29.png" HorizontalAlignment="Right" Stretch="Uniform"/>
+
+                <!--菜单-->
+                <Menu  
+                     Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"  Foreground="DarkBlue" FontWeight="Bold">
+                    <MenuItem x:Name="InterfaceSelectorMenu" Header="界面选择" FontFamily="Arial,Microsoft YaHei">
+                        <!--<MenuItem x:Name="menuNormal" Header="HEX解析" IsCheckable="true"  FontFamily="Arial,Microsoft YaHei" Click="Menu_Click"/>-->
+                        <MenuItem x:Name="menuHexParseWithText" Header="HEX解析带原文" IsCheckable="true"  FontFamily="Arial,Microsoft YaHei" Click="Menu_Click"/>
+                        <MenuItem x:Name="menuHexBurn" Header="HEX烧录" IsCheckable="true"  FontFamily="Arial,Microsoft YaHei" Click="Menu_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="关于" FontFamily="Arial,Microsoft YaHei">
+                        <MenuItem x:Name="miTopMe" Header="始终最前" IsCheckable="True" Checked="miTopMe_Checked" Unchecked="miTopMe_Unchecked"  />
+                        <MenuItem x:Name="helpMenu" Header="帮助" Click="helpMenu_Click" />
+                        <MenuItem x:Name="aboutMe" Header="说明书" >
+                            <MenuItem x:Name="miNormalPage" Header="常规说明书" Click="miNormalPage_Click" />
+                            <MenuItem x:Name="miReliablityOnePage" Header="单控可靠性说明书" Click="miReliablityOnePage_Click" />
+                            <MenuItem x:Name="miReliablityTwoPage" Header="双控可靠性说明书" Click="miReliablityTwoPage_Click" />
+                        </MenuItem>
+                        
+                    </MenuItem>
+                </Menu>
+
+                <Ellipse x:Name="ellipse"  HorizontalAlignment="Right" Fill="Blue" StrokeThickness="0" Width="4" Height="4" RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+
+                </Ellipse>
+                <Path Data="M530.83333,0.5 L523.83365,0.5 523.83365,29.5 526.33384,29.5 540.83321,14.5 C540.72221,13.277778 542.33365,13.000333 540.5002,10.833333 538.66675,8.6663337 534.50035,4.1666667 531.50043,0.83333333 L540.33354,0.16666667 541,0.16666667 553.16655,0.16666667 553.16655,29.666669 536.16684,29.666669 550.74982,15.083168 C550.74982,13.277556 553.83321,13.166334 550.74982,9.6663337 547.66643,6.1663336 537.47216,3.5554446 530.83333,0.5 z"  HorizontalAlignment="Right" Margin="0,0.167,202.833,0.333" Stretch="Fill" StrokeThickness="0" Width="29.334"/>
+
+            </Grid>
+
+            <TabControl Grid.Row="1" Name="tabControl1" TabStripPlacement="Bottom" 
+                        FontFamily="Arial,Microsoft YaHei" 
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
+
+
+                <!--<TabItem Name="tiHexParse" Header="HexParse" >
+                    <UserPages:HexParse x:Name="myHexParse" Background="{Binding Path=Background,ElementName=gdMain}"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        PageVisibily="{Binding ElementName=tiHexParse,Path=Visibility}"  />
+                </TabItem>-->
+
+                <TabItem Name="tiHexParseWithText" Header="HexParseWithText" >
+                    <UserPages:HexParseWithText x:Name="myHexParseWithText" Background="{Binding Path=Background,ElementName=gdMain}"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        PageVisibily="{Binding ElementName=tiHexParseWithText,Path=Visibility}"  />
+                </TabItem>
+
+                <TabItem Name="tiHexBurn" Header="HexBurn" >
+                    <UserPages:BootloaderPage x:Name="myHexBurn" Background="{Binding Path=Background,ElementName=gdMain}"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        PageVisibily="{Binding ElementName=tiHexBurn,Path=Visibility}"  />
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>
