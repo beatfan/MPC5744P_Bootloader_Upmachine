@@ -418,7 +418,7 @@ namespace CANDevices.ZlgCAN.PhysicalInterface
         {
 
             UInt32 result = 1;
-
+            int nTimeOut = 1500;
 
             //VCI_ResetCAN((uint)m_CanType, m_DeviceIndex, canIndex); //复位
 
@@ -549,6 +549,9 @@ namespace CANDevices.ZlgCAN.PhysicalInterface
             if (VCI_ClearBuffer((uint)m_CanType, m_DeviceIndex, canIndex) == 0)//1成功，0失败
                 result = 0x6666;
 
+            //设置发送数据超时时间
+            //VCI_SetReference((uint)m_CanType, m_DeviceIndex, canIndex, 1, (byte*)&nTimeOut);
+
             return result;
         }
 
@@ -564,7 +567,7 @@ namespace CANDevices.ZlgCAN.PhysicalInterface
         {
             //CanDataStc canSendData = new CanDataStc();
             VCI_CAN_OBJ sendobj = new VCI_CAN_OBJ();
-            int nTimeOut = 1500;
+            
 
             sendobj.SendType = 0; //正常发送
             sendobj.RemoteFlag = canSendData.dataFormat;
@@ -575,8 +578,7 @@ namespace CANDevices.ZlgCAN.PhysicalInterface
             for (byte i = 0; i < sendobj.DataLen; i++)
                 sendobj.Data[i] = canSendData.datas[i];
 
-            //设置发送数据超时时间
-            VCI_SetReference((uint)m_CanType, m_DeviceIndex, canIndex, 1, (byte*)&nTimeOut);
+            
             
             if (VCI_Transmit((uint)m_CanType, m_DeviceIndex, canIndex, ref sendobj, 1) == 0)  //error
                 return 0;
@@ -590,7 +592,6 @@ namespace CANDevices.ZlgCAN.PhysicalInterface
         {
             //CanDataStc canSendData = new CanDataStc();
             VCI_CAN_OBJ sendobj = new VCI_CAN_OBJ();
-            int nTimeOut = 1500;
 
             sendobj.SendType = 0; //正常发送
             sendobj.RemoteFlag = canSendData.dataFormat;
@@ -601,8 +602,6 @@ namespace CANDevices.ZlgCAN.PhysicalInterface
             for (byte i = 0; i < sendobj.DataLen; i++)
                 sendobj.Data[i] = canSendData.datas[i];
 
-            //设置发送数据超时时间
-            VCI_SetReference((uint)m_CanType, m_DeviceIndex, canIndex, 1, (byte*)&nTimeOut);
 
             
             if (VCI_Transmit((uint)m_CanType, m_DeviceIndex, canIndex, ref sendobj, 1) == 0)  //error
